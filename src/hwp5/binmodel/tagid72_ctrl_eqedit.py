@@ -26,6 +26,11 @@ from hwp5.dataio import UINT32
 from hwp5.dataio import Enum
 from hwp5.dataio import Flags
 
+from hwp5.dataio import HWPUNIT
+from hwp5.dataio import BSTR
+from hwp5.dataio import INT16
+from hwp5.binmodel._shared import COLORREF
+
 
 class EqEdit(RecordModel):
     ''' 4.2.9.3. 한글 스크립트 수식 (한글 97 방식 수식) '''
@@ -40,10 +45,11 @@ class EqEdit(RecordModel):
         ''' 표 100 수식 개체 속성 '''
 
         # TODO: followings are not tested against real files
-        if False:
-            yield
-        # yield cls.Flags, 'flags'
-        # yield BSTR, 'script'
-        # yield HWPUNIT, 'font_size'
-        # yield COLORREF, 'color'
-        # yield INT16, 'baseline'
+        # if False:
+        #     yield
+        yield cls.Flags, 'flags'
+        yield BSTR, 'script'
+        yield HWPUNIT, 'font_size'
+        yield COLORREF, 'color'
+        yield INT16, 'baseline'
+        yield BSTR, 'version'
